@@ -1,0 +1,43 @@
+//
+   Created by Juan Carlos on 06/03/2018.
+extends layout
+
+block content
+
+    div
+        .page-title
+            .title_left
+                h3
+                    //| Tables
+                    //small Some examples to get you started
+          
+        .clearfix
+        .row
+            .clearfix
+            .col-md-12.col-sm-12.col-xs-12
+                .x_panel
+                    .x_title
+                        h2
+                            | Directorio de empresas
+                            small 
+                        
+                        .clearfix
+                        .table-responsive
+                            table.table.table-striped.jambo_table.bulk_action
+                                thead
+                                    tr.headings
+                                        th.column-title Nombre
+                                        th.column-title Correocliente
+                                        th.column-title Telefono1
+                                        th.column-title Fechaini
+                                        th.column-title propiedades
+                                tbody
+                                    each dato in datos
+                                        tr.even.pointer
+                                            td.a-center #{dato.nombre_empresa}
+                                            td.a-center #{dato.correocliente}
+                                            td.a-center #{dato.telefono1}
+                                            td.a-center #{dato.fechaini}
+                                            td.a-center #{dato.propiedades}
+
+
