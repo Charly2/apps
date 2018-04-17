@@ -201,15 +201,15 @@ router.post('/', urlencodedParser, function(req, res, next) {
     //console.log(now);
     //console.log(util.inspect(a, false, null));
     //console.log(req.body)
-    console.log(req)
+   // console.log(req)
     reporte[0] = ["Reporte Local", a.descripcion,now,now,"Abierto",a.categoria,operador,0];
     reporte[1] = [0, a.correo, a.nombre, a.telefono, a.telefono2, a.prop, a.fechaentrega];
     //console.log(util.inspect(reporte, false, null));
     reporteLcal.save(reporte,function (err, data) {
         if (!err){
-            //console.log(data)
+            console.log(data)
             //res.status(200).json(data);
-            res.redirect('reporte_local/'+data)
+            res.redirect('/reporte_local/'+data)
 
         }
     });

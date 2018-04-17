@@ -89,7 +89,7 @@ ReporteLocalModel.save=function(reporte,callback){
 console.log(reporte);
     connection.beginTransaction(function(err) {
         if (err) { callback(true,{"er":"connection","cod":error}); }
-
+        console.log("entro aqui Re1");
         connection.query("INSERT INTO `reporte`  VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)",reporte[0],function (error, results) {
             if (error) {
                 return connection.rollback(function() {
@@ -97,6 +97,7 @@ console.log(reporte);
                 });
             }else{
                 reporte[1][0] = results.insertId;
+                console.log("entro aqui Re2");
                 connection.query("INSERT INTO `reporte_local` VALUES (?, ?, ?, ?, ?, ?,?)",reporte[1], function (error, results, fields) {
                     if (error) {
                         return connection.rollback(function() {
