@@ -98,15 +98,18 @@ console.log(reporte);
             }else{
                 reporte[1][0] = results.insertId;
                 console.log("entro aqui Re2");
+                console.log(reporte);
                 connection.query("INSERT INTO `reporte_local` VALUES (?, ?, ?, ?, ?, ?,?)",reporte[1], function (error, results, fields) {
                     if (error) {
                         return connection.rollback(function() {
+                            console.log("error 2");
                             callback(true,{"er":"log","cod":error});
                         });
                     }else{
                         connection.commit(function(err) {
                             if (err) {
                                 return connection.rollback(function() {
+                                    console.log("error 3");
                                     callback(true,{"er":"comit","cod":error});
                                 });
                             }
