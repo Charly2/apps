@@ -101,7 +101,7 @@ console.log(reporte);
                 console.log(reporte);
                 connection.query("INSERT INTO `reporte_local` VALUES (?, ?, ?, ?, ?, ?,?)",reporte[1], function (error, results, fields) {
                     if (error) {
-                        return connection.rollback(function() {}
+                        return connection.rollback(function() {
                             console.log(error);
                             console.log("error 2");
                             callback(true,{"er":"log","cod":error});
