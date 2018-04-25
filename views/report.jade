@@ -31,10 +31,10 @@ block content
                             ul.stats-overview(style="padding:0")
                                 li.wi25
                                     span.name  Fecha de Levantamiento
-                                    span#fec1.value.text-success #{new Date(data.info.fechaini).toLocaleString('en-GB', { timeZone: 'UTC' })}
+                                    span#fec1.value.text-success #{new Date(data.info.fechaini).toLocaleString()}
                                 li.wi25
                                     span.name  Fecha de Modificacion
-                                    span#fec2.value.text-success #{new Date(data.info.fechamod).toLocaleString('en-GB', { timeZone: 'UTC' })}
+                                    span#fec2.value.text-success #{new Date(data.info.fechamod).toLocaleString()}
                                 li.wi25
                                     span.name  Prioridad
                                     select.form-control.value.text-success.select_charly#prio_val(onchange="ch_prio(this)")
