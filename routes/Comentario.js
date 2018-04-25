@@ -31,9 +31,9 @@ router.post('/local', function(req, res, next) {
     reporte[0] = [a.reporte,a.body];
     reporte[1] = [0,a.user];
     if(a.isnota==1){
-        reporte[0][2] = '1';
-    }else{
         reporte[0][2] = '0';
+    }else{
+        reporte[0][2] = '1';
     }
 
 
