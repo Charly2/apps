@@ -78,7 +78,7 @@ router.get('/:id', function(req, res, next) {
                                                             datos.operadores = dcu;
                                                             if(!ecu){
                                                                 res.render('report',{title: 'Sicty report system', data:datos, user:req.session.nombre});
-
+                                                                //res.status(200).json(datos);
                                                                 
                                                             }
                                                         })
@@ -203,8 +203,8 @@ router.post('/', urlencodedParser, function(req, res, next) {
     //console.log(req.body)
    // console.log(req)
     reporte[0] = ["Reporte Local", a.descripcion,now,now,"Abierto",a.categoria,operador,0];
-    reporte[1] = [0, a.correo, a.nombre, a.telefono, a.telefono2, a.prop, a.fechaentrega];
-    //console.log(util.inspect(reporte, false, null));
+    reporte[1] = [0, a.correo, a.nombre, a.telefono, a.telefono2, a.prop, a.fechaentrega,a.tipopago,a.tipoDis,a.coti,a.garantia,a.solucion];
+    //console.log(util.inspect(reporte, false, null));ss
     reporteLcal.save(reporte,function (err, data) {
         if (!err){
             console.log(data)
@@ -228,8 +228,48 @@ router.post('/:id/estado',function (req,res,next) {
 
         }
     });
-
 });
+
+router.post('/:id/solucion',function (req,res,next) {
+
+    var estado =[req.body.solucion,req.params.id]
+    console.log(req.body);
+    reporteLcal.solucion(estado,function (err, data) {
+        if (!err){
+            console.log(data)
+            //res.status(200).json(data);
+            res.redirect('/reporte_local/'+req.params.id)
+
+        }
+    });
+});
+
+
+router.get('/:id/firma',function (req,res,next) {
+    auth.mach(req,res,function (req,res) {
+        res.render('firma',{id:req.params.id});
+    });
+ 
+});
+
+
+router.post('/:id/firma',function (req,res,next) {
+    auth.mach(req,res,function (req,res) {
+        
+        reporteLcal.firma([req.body.imagedata,req.params.id],function (err, data) {
+            if (!err){
+                console.log(data)
+                //res.status(200).json(data);
+                res.send('ok');
+                
+    
+            }
+        });
+        
+    });
+ 
+});
+
 
 router.post('/:id/prio',function (req,res,next) {
 

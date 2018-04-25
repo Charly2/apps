@@ -44,6 +44,34 @@ ReporteLocalModel.estado = function(estado,callback){
         });
     }
 };
+
+ReporteLocalModel.firma = function(estado,callback){
+    if (connection){
+        var sql = "UPDATE `reporte` SET `firma`= ? WHERE `idreporte` = ?";
+        connection.query(sql,estado, function (error,data) {
+            if (error)
+                callback(true,data);
+            else{
+                callback(null,data);
+            }
+        });
+    }
+};
+
+
+ReporteLocalModel.solucion = function(estado,callback){
+    if (connection){
+        var sql = "UPDATE `reporte_local` SET `solucion`= ? WHERE `idreporte_local` = ?";
+        connection.query(sql,estado, function (error,data) {
+            if (error)
+                callback(true,data);
+            else{
+                callback(null,data);
+            }
+        });
+    }
+};
+
 ReporteLocalModel.prio = function(estado,callback){
     if (connection){
         var sql = "UPDATE `reporte` SET `prioridad`= ? WHERE `idreporte` = ?";
@@ -90,7 +118,7 @@ console.log(reporte);
     connection.beginTransaction(function(err) {
         if (err) { callback(true,{"er":"connection","cod":error}); }
         console.log("entro aqui Re1");
-        connection.query("INSERT INTO `reporte`  VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)",reporte[0],function (error, results) {
+        connection.query("INSERT INTO `reporte`  VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ? ,'')",reporte[0],function (error, results) {
             if (error) {
                 return connection.rollback(function() {
                     callback(true,{"er":"usr","cod":error});
@@ -99,7 +127,7 @@ console.log(reporte);
                 reporte[1][0] = results.insertId;
                 console.log("entro aqui Re2");
                 console.log(reporte);
-                connection.query("INSERT INTO `reporte_local` VALUES (?, ?, ?, ?, ?, ?,?)",reporte[1], function (error, results, fields) {
+                connection.query("INSERT INTO reporte_local VALUES (?, ?, ?, ?, ?, ?, ? , ? , ? , ? , ? , ? )",reporte[1], function (error, results, fields) {
                     if (error) {
                         return connection.rollback(function() {
                             console.log(error);

@@ -24,45 +24,77 @@ block content
                         form#reporte.form-horizontal.form-label-left.input_mask(action="/reporte_local" method="post")
 
 
-                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback(style="display:none")
+                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback.no-margin(style="display:none")
                                 input#ma.form-control.has-feedback-left(type='text',  placeholder='Propiedades' name="prop")
                                 span.fa.fa-user.form-control-feedback.left(aria-hidden='true')
 
-                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
+                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback.no-margin-10
                                 input#inputSuccess2.form-control.has-feedback-left(type='text',  placeholder='Nombre del Cliente' name="nombre")
                                 span.fa.fa-user.form-control-feedback.left(aria-hidden='true')
 
-                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
+                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback.no-margin-10
                                 input#inputSuccess4.form-control.has-feedback-right(type='email', placeholder='Correo del Cliente' name="correo")
                                 span.fa.fa-envelope.form-control-feedback.right(aria-hidden='true')
 
-                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
+                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback.no-margin-7
                                 input#inputSuccess6.form-control.has-feedback-left(data-inputmask="'mask' : '(99) 9999-9999'",type='text', placeholder='Telefono del Cliente' name="telefono")
                                 span.fa.fa-phone.form-control-feedback.left(aria-hidden='true')
 
-                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback
+                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback.no-margin-7
                                 input#inputSuccess9.form-control(data-inputmask="'mask' : '(99) 9999-9999'",type='text', placeholder='Otro Telefono' name="telefono2")
-                                span.fa.fa-phone.form-control-feedback.right(aria-hidden='true')
+                                span.fa.fa-phone.form-control-feedback.right(aria-hidden='true')    
+                                
 
-                            .col-md-6.col-sm-6.col-xs-12.form-group.no-padding
-                                label.control-label.col-md-4.col-sm-3.col-xs-3(style="text-align:left") Categoria
-                                .col-md-8.col-sm-9.col-xs-9
-                                    select.form-control(name="categoria")
+                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback.no-margin
+                                label.control-label(style="text-align:left") Tipo de Pago
+                                select.form-control(name="tipopago")
+                                    option(value="Pago Efectivo") Pago Efectivo
+                                    option(value="Pago Electronico") Pago Electronico
+
+                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback.no-margin
+                                label.control-label(style="text-align:left") Tipo de Dispositivo
+                                select.form-control(name="tipoDis")
+                                    option(value="Computadora") Computadora 
+                                    option(value="Tableta") Tableta
+                                    option(value="SmartPhone") SmartPhone
+                                    option(value="Otro Dispositvo") Otro Dispositvo
+
+                            
+                                
+
+                            
+
+                            .col-md-3.col-sm-6.col-xs-12.form-group.has-feedback.no-margin
+                                label.control-label(style="text-align:left") Categoria
+                                select.form-control(name="categoria")
                                         each categoria in cat
                                            option(value="#{categoria.idcategoria}") #{categoria.nombre_cat}
 
+                            .col-md-3.col-sm-6.col-xs-12.form-group.has-feedback.no-margin(style="margin-bottom:0")
+                                label.control-label(style="text-align:left") Fecha de Entrega
+                                input#single_cal4.form-control.has-feedback-right(name="fechaentrega" type='text', placeholder='First Name', aria-describedby='inputSuccess2Status4')
+                                span.fa.fa-calendar.form-control-feedback.right(aria-hidden='true')
 
+                            .col-md-3.col-sm-6.col-xs-12.form-group.has-feedback.no-margin(style="margin-bottom:0")
+                                label.control-label(style="text-align:left") Cotización
+                                input.form-control.has-feedback-left(name="coti" type='text', placeholder='Cotización', aria-describedby='inputSuccess2Status4')
+                                span.fa.fa-dollar.form-control-feedback.left(aria-hidden='true')      
 
-                            .col-md-6.col-sm-6.col-xs-12.form-group.has-feedback(style="margin-bottom:0")
-                                label.control-label.col-md-4.col-sm-3.col-xs-3(style="text-align:left") Fecha de Entrega
-                                .col-md-8.col-sm-9.col-xs-9.no-padding
-                                    input#single_cal4.form-control.has-feedback-right(name="fechaentrega" type='text', placeholder='First Name', aria-describedby='inputSuccess2Status4')
-                                    span.fa.fa-calendar.form-control-feedback.right(aria-hidden='true')
+                            .col-md-3.col-sm-6.col-xs-12.form-group.has-feedback.no-margin(style="margin-bottom:0")
+                                label.control-label(style="text-align:left") Garantia
+                                input.form-control.has-feedback-right(name="garantia" type='text', placeholder='Garantia', aria-describedby='inputSuccess2Status4')
+                                span.fa.fa-.form-control-feedback.right(aria-hidden='true')  días      
+                                     
 
                             .col-md-12.col-sm-12.col-xs-12.form-group.has-feedback.no-padding
                                 label.control-label.col-md-12.col-sm-12.col-xs-12(style="text-align:left") Descipción
                                 .col-md-12.col-sm-12.col-xs-12
                                     textarea.form-control(rows='3', placeholder='Descipción Completa del Problema' name="descripcion")
+
+                            .col-md-12.col-sm-12.col-xs-12.form-group.has-feedback.no-padding
+                                label.control-label.col-md-12.col-sm-12.col-xs-12(style="text-align:left") Solución Propuesta
+                                .col-md-12.col-sm-12.col-xs-12
+                                    textarea.form-control(rows='3', placeholder='Descipción Completa de la Solucioón Problema' name="solucion" )        
 
                             .col-md-12.col-sm-12.col-xs-12.form-group.has-feedback.no-padding
                                 label.control-label.col-md-12.col-sm-12.col-xs-12(style="text-align:left") Propiedades

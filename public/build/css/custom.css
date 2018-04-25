@@ -15,6 +15,17 @@ html , body{
  height:100%;
  }
 
+ .no-margin-7{
+     margin: 7px 0 0 0!important;
+ }
+ .no-margin-10{
+    margin: 7px 0!important;
+}
+
+ .no-margin{
+     margin: 0!important;
+ }
+
 .daterangepicker .ranges li {
     color: #73879C
 }
@@ -4255,3 +4266,116 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
     background-color: #ffff !important;
 }
 /** /bootstrap-datetimepicker **/
+
+
+.wi25{
+    width: 25%!important;
+    
+}
+
+.files_juan a{
+    width: 200px;
+    
+    display: block;
+    overflow: hidden;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 460px) {
+    .wi25{
+        width: 100%!important;
+        margin-top: 1em;
+    } 
+    .contenido_repo{
+        width: 98%;
+    }
+    .files_juan a{
+        width: 70%;
+    }
+    body{
+        width: 100%;
+    }
+}
+
+.firma{
+    margin: 0;
+    padding: 0;
+}
+.firma #test{
+    border: 1px solid black;
+    width: 100%;
+    height: 75vh;
+}
+
+.firma .links a{
+    display: block;
+    background: #26B99A;
+    color:white;
+    line-height: 2;
+    margin: 0 .5em;
+    min-width: 100px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.firma .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.firma  p{
+    text-align: center;
+    color: white;
+    line-height: 1.2;
+    width: 100%;
+    font-size: 12px;
+}
+.firma  p a{
+    font-size: 1em;
+    color: turquoise;
+    display: inline;
+    background: transparent;
+}
+h1{
+    text-align: center;
+}
+.firma h1{
+    color: white;
+    margin: 0;
+    font-size: 15px;
+    text-align: center;
+    
+} 
+
+.firma img{
+    display: block;
+    height: 40px;
+    margin: auto;
+    
+}
+
+.hf{
+    background: #2A3F54;
+    position: absolute;
+    width: 100%;
+}
+
+#img{
+    display: none;
+    padding-top: 5em;
+    width: 300px;
+    height: 300px;
+}
+
+#save{
+    display: none;
+}
+
+#imgFirma{
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 200px;
+}

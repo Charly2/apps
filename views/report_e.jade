@@ -26,13 +26,13 @@ block content
                     .x_content
                         .col-md-8.col-sm-8.col-xs-12
                             ul.stats-overview
-                                li(style="width:25%")
+                                li.wi25
                                     span.name  Fecha de Levantamiento
                                     span#fec1.value.text-success #{new Date(data.info.fechaini).toLocaleString('en-GB', { timeZone: 'UTC' })}
-                                li(style="width:25%")
+                                li.wi25
                                     span.name  Fecha de Modificacion
                                     span#fec2.value.text-success #{new Date(data.info.fechamod).toLocaleString('en-GB', { timeZone: 'UTC' })}
-                                li(style="width:25%")
+                                li.wi25
                                     span.name  Prioridad
                                     select.form-control.value.text-success.select_charly#prio_val(onchange="ch_prio(this)")
                                         each prio in [1,2,3,4,5]
@@ -40,7 +40,7 @@ block content
                                                 option(value="#{prio}", selected  ) #{prio}
                                             else
                                                 option(value="#{prio}",  ) #{prio}
-                                li(style="width:25%").hidden-phone
+                                li.wi25.hidden-phone
                                     span.name  Estado
                                     select.form-control.value.text-success.select_charly#estado_val(_status="0", onchange="ch_estado(this)")
                                         //option#estado_actual(value="#{data.info.idestado}", selected) #{data.info.idestado}
